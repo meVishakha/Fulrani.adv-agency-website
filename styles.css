@@ -1102,6 +1102,16 @@ body {
     margin-bottom: 0.25rem;
 }
 
+.contact-text a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+}
+.contact-text a:hover {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
 .social-contact h4 {
     color: white;
     margin-bottom: 1rem;
