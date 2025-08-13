@@ -31,17 +31,20 @@ const portfolioItems = document.querySelectorAll('.portfolio-item');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-        // Remove active class from all buttons
         filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
         button.classList.add('active');
-        
         const filterValue = button.getAttribute('data-filter');
-        
+        let visibleIndex = 0;
         portfolioItems.forEach(item => {
-            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+            const matches = filterValue === 'all' || item.getAttribute('data-category') === filterValue;
+            if (matches) {
                 item.style.display = 'block';
-                item.style.animation = 'fadeInUp 0.6s ease forwards';
+                item.style.animation = 'none';
+                // reflow to restart animation
+                void item.offsetWidth;
+                item.style.animation = `fadeInUp 0.6s ease forwards`;
+                item.style.animationDelay = `${visibleIndex * 80}ms`;
+                visibleIndex += 1;
             } else {
                 item.style.display = 'none';
             }
@@ -180,7 +183,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.feature-card, .service-card, .portfolio-item, .case-study, .testimonial, .team-member, .value-card');
+    const animatedElements = document.querySelectorAll('.feature-card, .service-card, .service-item, .portfolio-item, .case-study, .testimonial, .team-member, .value-card, .step, .pricing-card, .award-item, .stat-item, .footer-section');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -188,6 +191,28 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+
+    function applyStagger(containerSelector, itemSelector, baseDelay = 0, step = 80) {
+        const container = document.querySelector(containerSelector);
+        if (!container) return;
+        const items = container.querySelectorAll(itemSelector);
+        items.forEach((item, index) => {
+            item.style.transitionDelay = `${baseDelay + index * step}ms`;
+        });
+    }
+
+    applyStagger('.features-grid', '.feature-card');
+    applyStagger('.services-grid', '.service-card, .service-item');
+    applyStagger('.portfolio-grid', '.portfolio-item');
+    applyStagger('.case-studies-grid', '.case-study');
+    applyStagger('.testimonials-grid', '.testimonial');
+    applyStagger('.values-grid', '.value-card');
+    applyStagger('.team-grid', '.team-member');
+    applyStagger('.process-steps', '.step');
+    applyStagger('.pricing-grid', '.pricing-card');
+    applyStagger('.awards-grid', '.award-item');
+    applyStagger('.stats-grid', '.stat-item');
+    applyStagger('.footer-content', '.footer-section', 150);
 });
 
 // Counter animation for stats
@@ -285,7 +310,7 @@ window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     if (hero) {
-        const rate = scrolled * -0.5;
+        const rate = scrolled * -0.15;
         hero.style.transform = `translateY(${rate}px)`;
     }
 });
@@ -319,9 +344,11 @@ window.addEventListener('scroll', () => {
     if (window.pageYOffset > 300) {
         backToTopBtn.style.opacity = '1';
         backToTopBtn.style.visibility = 'visible';
+        backToTopBtn.classList.add('is-visible');
     } else {
         backToTopBtn.style.opacity = '0';
         backToTopBtn.style.visibility = 'hidden';
+        backToTopBtn.classList.remove('is-visible');
     }
 });
 
@@ -336,12 +363,12 @@ backToTopBtn.addEventListener('click', () => {
 // Hover effect for back to top button
 backToTopBtn.addEventListener('mouseenter', () => {
     backToTopBtn.style.background = '#2980b9';
-    backToTopBtn.style.transform = 'translateY(-3px)';
+    backToTopBtn.style.transform = 'translateY(-3px) scale(1.05)';
 });
 
 backToTopBtn.addEventListener('mouseleave', () => {
     backToTopBtn.style.background = '#3498db';
-    backToTopBtn.style.transform = 'translateY(0)';
+    backToTopBtn.style.transform = 'translateY(0) scale(1)';
 });
 
 // Preloader (optional)
