@@ -1102,6 +1102,16 @@ body {
     margin-bottom: 0.25rem;
 }
 
+.contact-text a {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,255,255,0.5);
+}
+.contact-text a:hover {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
 .social-contact h4 {
     color: white;
     margin-bottom: 1rem;
@@ -1250,23 +1260,19 @@ body {
     margin-bottom: 2rem;
 }
 
-.map-placeholder {
+.map-embed {
     width: 100%;
-    height: 300px;
-    background: #f8f9fa;
+    height: 360px;
     border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-    font-size: 3rem;
-    color: #3498db;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin-bottom: 1.25rem;
+    animation: fadeInUp 0.7s ease both;
 }
-
-.map-placeholder p {
-    margin-top: 1rem;
-    font-size: 1rem;
+.map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 .office-hours {
