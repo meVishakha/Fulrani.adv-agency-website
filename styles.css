@@ -398,7 +398,7 @@ body {
 
 /* About Story */
 .about-story {
-    padding: 120px 0 80px;
+    padding: 160px 0 80px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
@@ -457,16 +457,16 @@ body {
 .story-graphic {
     width: 420px;
     height: 420px;
-    background: rgba(255,255,255,0.02);
+    background: transparent;
     border-radius: 20px;
-    border: 3px solid rgba(255,255,255,0.85);
+    border: none;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.15);
+    box-shadow: none;
     animation: pop 0.6s ease forwards 0.35s;
 }
 
