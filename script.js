@@ -476,4 +476,30 @@ if ('IntersectionObserver' in window) {
 	}
 })();
 
+// Clients logo image extension fallback (.png -> .jpg/.jpeg/.webp/.svg)
+(function() {
+	const imgs = document.querySelectorAll('.client-logo-img');
+	if (!imgs.length) return;
+	const defaultExts = ['png','jpg','jpeg','webp','svg'];
+	imgs.forEach(img => {
+		const original = img.getAttribute('src');
+		if (!original) return;
+		const match = original.match(/^(.*)\.([a-zA-Z0-9]+)$/);
+		if (!match) return;
+		const base = match[1];
+		const initial = match[2].toLowerCase();
+		const exts = (img.dataset.exts ? img.dataset.exts.split(',') : defaultExts).map(e => e.trim().toLowerCase());
+		let startIdx = exts.indexOf(initial);
+		if (startIdx === -1) startIdx = 0;
+		let candIdx = (startIdx + 1) % exts.length;
+		function tryNext() {
+			if (candIdx === startIdx) return; // tried all
+			const nextExt = exts[candIdx];
+			candIdx = (candIdx + 1) % exts.length;
+			img.src = `${base}.${nextExt}`;
+		}
+		img.addEventListener('error', tryNext);
+	});
+})();
+
 console.log('Fulrani website loaded successfully! 🚀');
