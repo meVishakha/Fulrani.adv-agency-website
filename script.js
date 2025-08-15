@@ -460,4 +460,20 @@ if ('IntersectionObserver' in window) {
     });
 }
 
+// Clients carousel: ensure seamless marquee by duplicating track content once
+(function() {
+	const track = document.querySelector('.clients-track');
+	if (!track) return;
+	// If not already duplicated (check by data attribute), clone its children once
+	if (!track.dataset.duplicated) {
+		const clones = track.cloneNode(true).children;
+		Array.from(clones).forEach((node, idx) => {
+			if (idx < 10) { // duplicate first 10 only to avoid runaway growth
+				track.appendChild(node.cloneNode(true));
+			}
+		});
+		track.dataset.duplicated = 'true';
+	}
+})();
+
 console.log('Fulrani website loaded successfully! 🚀');
