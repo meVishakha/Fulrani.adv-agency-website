@@ -464,11 +464,11 @@ if ('IntersectionObserver' in window) {
 (function() {
 	const track = document.querySelector('.clients-track');
 	if (!track) return;
-	// If not already duplicated (check by data attribute), clone its children once
+	const items = track.querySelectorAll('.client-logo-item');
+	if (items.length >= 20) return; // already duplicated in markup
 	if (!track.dataset.duplicated) {
-		const clones = track.cloneNode(true).children;
-		Array.from(clones).forEach((node, idx) => {
-			if (idx < 10) { // duplicate first 10 only to avoid runaway growth
+		items.forEach((node, idx) => {
+			if (idx < 10) {
 				track.appendChild(node.cloneNode(true));
 			}
 		});
