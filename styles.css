@@ -399,7 +399,9 @@ body {
 /* About Story */
 .about-story {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: radial-gradient(1200px 500px at 15% 95%, rgba(255,255,255,0.08), transparent 60%),
+                radial-gradient(900px 400px at 95% 10%, rgba(255,255,255,0.08), transparent 55%),
+                linear-gradient(135deg, #2b1543 0%, #5a2b89 55%, #7b2fa2 100%);
     color: white;
 }
 
@@ -409,17 +411,17 @@ body {
     margin: 0 auto;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
     align-items: center;
 }
 
 .story-h1 {
     grid-column: 1 / -1;
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 800;
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     text-align: left;
     opacity: 0;
     transform: translateY(20px);
@@ -428,72 +430,84 @@ body {
 
 .story-text p:first-of-type {
     font-size: 1.1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease forwards 0.25s;
-    color: #eeeeee;
+    color: #f1f1f1;
 }
 
 /* hide old page title block */
 .story-page-title { display: none; }
 
-/* Two-column top row (first paragraph) + image, full-width second paragraph below */
+/* Simplified grid areas for headline + two cols */
 .story-grid {
     grid-template-areas:
         "heading heading"
-        "text image"
-        "wide wide";
+        "text image";
 }
 .story-grid .story-h1 { grid-area: heading; }
 .story-grid .story-text { grid-area: text; }
 .story-grid .story-image { grid-area: image; }
-.story-grid .story-text-wide { grid-area: wide; }
-
-@media (max-width: 900px) {
-    .story-grid {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "image"
-            "text"
-            "wide";
-    }
-}
-
-.story-text h2 {
-    display: none;
-}
 
 .story-text p {
-    margin-bottom: 1.5rem;
-    color: #eeeeee;
-    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: #f0eef6;
+    line-height: 1.9;
 }
 
 .story-graphic {
     width: 420px;
     height: 420px;
-    background: transparent;
-    border-radius: 50%;
+    background: rgba(255,255,255,0.02);
+    border-radius: 20px;
+    border: 3px solid rgba(255,255,255,0.85);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,255,255,0.15);
     animation: pop 0.6s ease forwards 0.35s;
 }
 
 .story-banner-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    cursor: pointer;
+    object-fit: cover;
+}
+
+.story-cta { margin-top: 1.5rem; }
+
+.btn-story {
+    display: inline-block;
+    background: linear-gradient(135deg, #9c5cfb, #7e3cec);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 28px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    box-shadow: 0 10px 22px rgba(124, 60, 236, 0.35);
+}
+.btn-story:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(124, 60, 236, 0.45);
+}
+
+@media (max-width: 900px) {
+    .story-content { grid-template-columns: 1fr; text-align: left; }
+    .story-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "heading"
+            "text"
+            "image";
+    }
 }
 
 @media (max-width: 768px) {
-    .story-content { grid-template-columns: 1fr; text-align: center; }
-    .story-graphic { margin: 0 auto; }
+    .story-graphic { width: 320px; height: 320px; }
 }
 
 /* Mission Vision */
