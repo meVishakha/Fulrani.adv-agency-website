@@ -1680,3 +1680,14 @@ html {
 .services-overview.gradient { padding-top: 120px; }
 .services-overview.gradient .section-header h2 { color: #ffffff; }
 .services-overview.gradient .section-header p { color: rgba(255,255,255,0.95); }
+
+/* Our Work continuous gradient wrapper */
+.work-gradient {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: #fff;
+}
+.work-gradient .page-header { background: transparent; padding-bottom: 20px; }
+.work-gradient .portfolio-filter { background: transparent; padding: 20px 0; }
+.work-gradient .portfolio { background: transparent; padding-top: 20px; }
+.work-gradient .filter-btn { background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+.work-gradient .filter-btn.active, .work-gradient .filter-btn:hover { background: #fff; color: #764ba2; }
