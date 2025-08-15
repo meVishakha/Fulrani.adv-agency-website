@@ -42,8 +42,8 @@ filterButtons.forEach(button => {
                 item.style.animation = 'none';
                 // reflow to restart animation
                 void item.offsetWidth;
-                item.style.animation = `fadeInUp 0.6s ease forwards`;
-                item.style.animationDelay = `${visibleIndex * 80}ms`;
+                item.style.animation = `fadeInUp 0.45s ease forwards`;
+                item.style.animationDelay = `${visibleIndex * 60}ms`;
                 visibleIndex += 1;
             } else {
                 item.style.display = 'none';
@@ -187,8 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
         observer.observe(el);
     });
 
@@ -310,10 +310,27 @@ window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     if (hero) {
-        const rate = scrolled * -0.15;
+        const rate = scrolled * -0.1;
         hero.style.transform = `translateY(${rate}px)`;
     }
 });
+
+// Cursor motion parallax for About story image
+const storyImg = document.querySelector('.story-banner-img');
+if (storyImg) {
+    const parent = storyImg.closest('.story-graphic');
+    parent.style.perspective = '800px';
+    parent.addEventListener('mousemove', (e) => {
+        const rect = parent.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        storyImg.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg) scale(1.03)`;
+        storyImg.style.transition = 'transform 0.12s ease';
+    });
+    parent.addEventListener('mouseleave', () => {
+        storyImg.style.transform = 'rotateY(0) rotateX(0) scale(1)';
+    });
+}
 
 // Back to top button
 const backToTopBtn = document.createElement('button');
