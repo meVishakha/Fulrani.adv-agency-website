@@ -1103,9 +1103,9 @@ body {
 }
 
 .contact-text a {
-    color: rgba(255, 255, 255, 0.95);
+    color: #e0e0e0;
     text-decoration: none;
-    border-bottom: 1px dashed rgba(255,255,255,0.5);
+    border-bottom: 1px dashed rgba(255,255,255,0.3);
 }
 .contact-text a:hover {
     color: #ffffff;
@@ -1354,6 +1354,14 @@ body {
     color: #bdc3c7;
     line-height: 1.6;
     margin-bottom: 0.5rem;
+}
+
+.footer-section p a {
+    color: #bdc3c7;
+    text-decoration: none;
+}
+.footer-section p a:hover {
+    color: #ecf0f1;
 }
 
 .footer-section ul {
