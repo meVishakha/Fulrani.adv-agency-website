@@ -143,12 +143,6 @@ The website is optimized for performance with:
 - XSS protection through proper input sanitization
 - HTTPS recommended for production
 
-## 📞 Support
-
-For support or questions about the Fulrani website:
-- Email: info@fulrani.com
-- Phone: +1 (555) 123-4567
-
 ## 📄 License
 
 This project is created for Fulrani Pvt Ltd. All rights reserved.
@@ -158,3 +152,4 @@ This project is created for Fulrani Pvt Ltd. All rights reserved.
 **Made with ❤️ by Vishakha**
 
 *Copyright | Powered by Fulrani Pvt Ltd*
+
