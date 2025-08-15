@@ -414,11 +414,13 @@ body {
     align-items: center;
 }
 
-.story-title {
+.story-h1 {
+    grid-column: 1 / -1;
     font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    font-weight: 800;
     line-height: 1.2;
+    margin-bottom: 1rem;
+    text-align: left;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease forwards 0.1s;
@@ -436,12 +438,14 @@ body {
 /* hide old page title block */
 .story-page-title { display: none; }
 
-/* Two-column top row (two paragraphs) + image, third paragraph full-width below */
+/* Two-column top row (first paragraph) + image, full-width second paragraph below */
 .story-grid {
     grid-template-areas:
+        "heading heading"
         "text image"
         "wide wide";
 }
+.story-grid .story-h1 { grid-area: heading; }
 .story-grid .story-text { grid-area: text; }
 .story-grid .story-image { grid-area: image; }
 .story-grid .story-text-wide { grid-area: wide; }
