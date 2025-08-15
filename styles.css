@@ -849,6 +849,11 @@ body {
     padding: 60px 0;
 }
 
+/* Ensure no visual break between page-header, filter, and portfolio when gradient is used */
+.page-header + .portfolio-filter.gradient { padding-top: 20px; }
+.portfolio-filter.gradient { padding-bottom: 20px; }
+.portfolio.gradient { padding-top: 20px; }
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1653,3 +1658,8 @@ html {
 .gradient .service-item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); }
 .gradient .service-item h3 { color: #ffffff; }
 .gradient .service-item p { color: rgba(255,255,255,0.9); }
+
+/* Services Overview (gradient) specific overrides */
+.services-overview.gradient { padding-top: 120px; }
+.services-overview.gradient .section-header h2 { color: #ffffff; }
+.services-overview.gradient .section-header p { color: rgba(255,255,255,0.95); }
