@@ -399,9 +399,7 @@ body {
 /* About Story */
 .about-story {
     padding: 120px 0 80px;
-    background: radial-gradient(1200px 500px at 15% 95%, rgba(255,255,255,0.08), transparent 60%),
-                radial-gradient(900px 400px at 95% 10%, rgba(255,255,255,0.08), transparent 55%),
-                linear-gradient(135deg, #2b1543 0%, #5a2b89 55%, #7b2fa2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
 }
 
