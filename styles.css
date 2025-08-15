@@ -614,8 +614,18 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
 }
 
 .service-item {
@@ -1618,3 +1628,12 @@ html {
 	padding: 80px 0;
 	background: #ffffff;
 }
+
+/* Gradient background helper */
+.gradient {
+	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+	color: white;
+}
+.gradient .service-item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); }
+.gradient .service-item h3 { color: #ffffff; }
+.gradient .service-item p { color: rgba(255,255,255,0.9); }
