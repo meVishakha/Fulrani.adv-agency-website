@@ -849,6 +849,11 @@ body {
     padding: 60px 0;
 }
 
+/* Ensure no visual break between page-header, filter, and portfolio when gradient is used */
+.page-header + .portfolio-filter.gradient { padding-top: 20px; }
+.portfolio-filter.gradient { padding-bottom: 20px; }
+.portfolio.gradient { padding-top: 20px; }
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
